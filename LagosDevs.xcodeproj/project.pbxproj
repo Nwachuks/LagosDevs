@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48123DF08889D69D46E4C9B2 /* Pods_LagosDevsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A301777424584A034C9BF7DB /* Pods_LagosDevsTests.framework */; };
+		880E9B472DFC3F2410A45EE9 /* Pods_LagosDevs_LagosDevsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610068B98FAC94945D94E348 /* Pods_LagosDevs_LagosDevsUITests.framework */; };
+		B04F5B2528E21C9200E5CCD8 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2428E21C9200E5CCD8 /* GithubUser.swift */; };
+		B04F5B2728E21CF300E5CCD8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */; };
+		B04F5B2928E21D1500E5CCD8 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2828E21D1500E5CCD8 /* DBManager.swift */; };
 		B0EE2E0328E1E230005F7143 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0228E1E230005F7143 /* AppDelegate.swift */; };
 		B0EE2E0528E1E230005F7143 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0428E1E230005F7143 /* SceneDelegate.swift */; };
 		B0EE2E0728E1E230005F7143 /* DevsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0628E1E230005F7143 /* DevsListVC.swift */; };
@@ -15,6 +20,7 @@
 		B0EE2E1A28E1E231005F7143 /* LagosDevsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E1928E1E231005F7143 /* LagosDevsTests.swift */; };
 		B0EE2E2428E1E231005F7143 /* LagosDevsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E2328E1E231005F7143 /* LagosDevsUITests.swift */; };
 		B0EE2E2628E1E231005F7143 /* LagosDevsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E2528E1E231005F7143 /* LagosDevsUITestsLaunchTests.swift */; };
+		FD940585B6CD31ED531084A2 /* Pods_LagosDevs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 676569AE31041B4BA49E0696 /* Pods_LagosDevs.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19DC9666B5C98252189E6638 /* Pods-LagosDevsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevsTests.release.xcconfig"; path = "Target Support Files/Pods-LagosDevsTests/Pods-LagosDevsTests.release.xcconfig"; sourceTree = "<group>"; };
+		3451AC4EBBC1324D43F028D2 /* Pods-LagosDevs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevs.release.xcconfig"; path = "Target Support Files/Pods-LagosDevs/Pods-LagosDevs.release.xcconfig"; sourceTree = "<group>"; };
+		610068B98FAC94945D94E348 /* Pods_LagosDevs_LagosDevsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LagosDevs_LagosDevsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62B250C6DC9D452EDC6A6D1C /* Pods-LagosDevsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevsTests.debug.xcconfig"; path = "Target Support Files/Pods-LagosDevsTests/Pods-LagosDevsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		676569AE31041B4BA49E0696 /* Pods_LagosDevs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LagosDevs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A03C16715C5C44A40134284A /* Pods-LagosDevs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevs.debug.xcconfig"; path = "Target Support Files/Pods-LagosDevs/Pods-LagosDevs.debug.xcconfig"; sourceTree = "<group>"; };
+		A0E35F9081B88DA07D0E5E43 /* Pods-LagosDevs-LagosDevsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevs-LagosDevsUITests.debug.xcconfig"; path = "Target Support Files/Pods-LagosDevs-LagosDevsUITests/Pods-LagosDevs-LagosDevsUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A301777424584A034C9BF7DB /* Pods_LagosDevsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LagosDevsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B04F5B2428E21C9200E5CCD8 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
+		B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		B04F5B2828E21D1500E5CCD8 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		B0EE2DFF28E1E230005F7143 /* LagosDevs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LagosDevs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EE2E0228E1E230005F7143 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0EE2E0428E1E230005F7143 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +64,7 @@
 		B0EE2E1F28E1E231005F7143 /* LagosDevsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LagosDevsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EE2E2328E1E231005F7143 /* LagosDevsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagosDevsUITests.swift; sourceTree = "<group>"; };
 		B0EE2E2528E1E231005F7143 /* LagosDevsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LagosDevsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CCA328B1F8CCEBF408B5D638 /* Pods-LagosDevs-LagosDevsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LagosDevs-LagosDevsUITests.release.xcconfig"; path = "Target Support Files/Pods-LagosDevs-LagosDevsUITests/Pods-LagosDevs-LagosDevsUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD940585B6CD31ED531084A2 /* Pods_LagosDevs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48123DF08889D69D46E4C9B2 /* Pods_LagosDevsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +88,58 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880E9B472DFC3F2410A45EE9 /* Pods_LagosDevs_LagosDevsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57176A3C31FFAC2069C3775B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A03C16715C5C44A40134284A /* Pods-LagosDevs.debug.xcconfig */,
+				3451AC4EBBC1324D43F028D2 /* Pods-LagosDevs.release.xcconfig */,
+				A0E35F9081B88DA07D0E5E43 /* Pods-LagosDevs-LagosDevsUITests.debug.xcconfig */,
+				CCA328B1F8CCEBF408B5D638 /* Pods-LagosDevs-LagosDevsUITests.release.xcconfig */,
+				62B250C6DC9D452EDC6A6D1C /* Pods-LagosDevsTests.debug.xcconfig */,
+				19DC9666B5C98252189E6638 /* Pods-LagosDevsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B04F5B2028E21B8900E5CCD8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B0EE2E0628E1E230005F7143 /* DevsListVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B04F5B2128E21B8F00E5CCD8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B04F5B2228E21B9500E5CCD8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B04F5B2428E21C9200E5CCD8 /* GithubUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B04F5B2328E21B9900E5CCD8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */,
+				B04F5B2828E21D1500E5CCD8 /* DBManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		B0EE2DF628E1E230005F7143 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +147,8 @@
 				B0EE2E1828E1E231005F7143 /* LagosDevsTests */,
 				B0EE2E2228E1E231005F7143 /* LagosDevsUITests */,
 				B0EE2E0028E1E230005F7143 /* Products */,
+				57176A3C31FFAC2069C3775B /* Pods */,
+				BF28A30EB4CE83093B10FCF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +165,12 @@
 		B0EE2E0128E1E230005F7143 /* LagosDevs */ = {
 			isa = PBXGroup;
 			children = (
+				B04F5B2228E21B9500E5CCD8 /* Models */,
+				B04F5B2128E21B8F00E5CCD8 /* Views */,
+				B04F5B2028E21B8900E5CCD8 /* Controllers */,
+				B04F5B2328E21B9900E5CCD8 /* Managers */,
 				B0EE2E0228E1E230005F7143 /* AppDelegate.swift */,
 				B0EE2E0428E1E230005F7143 /* SceneDelegate.swift */,
-				B0EE2E0628E1E230005F7143 /* DevsListVC.swift */,
 				B0EE2E0B28E1E231005F7143 /* Assets.xcassets */,
 				B0EE2E0D28E1E231005F7143 /* LaunchScreen.storyboard */,
 				B0EE2E1028E1E231005F7143 /* Info.plist */,
@@ -124,6 +195,16 @@
 			path = LagosDevsUITests;
 			sourceTree = "<group>";
 		};
+		BF28A30EB4CE83093B10FCF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				676569AE31041B4BA49E0696 /* Pods_LagosDevs.framework */,
+				610068B98FAC94945D94E348 /* Pods_LagosDevs_LagosDevsUITests.framework */,
+				A301777424584A034C9BF7DB /* Pods_LagosDevsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -131,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0EE2E2928E1E231005F7143 /* Build configuration list for PBXNativeTarget "LagosDevs" */;
 			buildPhases = (
+				D8D52D0572E361AFE1D98643 /* [CP] Check Pods Manifest.lock */,
 				B0EE2DFB28E1E230005F7143 /* Sources */,
 				B0EE2DFC28E1E230005F7143 /* Frameworks */,
 				B0EE2DFD28E1E230005F7143 /* Resources */,
+				2812C032A31DBE7EB86274DE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0EE2E2C28E1E231005F7143 /* Build configuration list for PBXNativeTarget "LagosDevsTests" */;
 			buildPhases = (
+				2C96B64A9FE0F537DD6E1C75 /* [CP] Check Pods Manifest.lock */,
 				B0EE2E1128E1E231005F7143 /* Sources */,
 				B0EE2E1228E1E231005F7143 /* Frameworks */,
 				B0EE2E1328E1E231005F7143 /* Resources */,
@@ -166,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0EE2E2F28E1E231005F7143 /* Build configuration list for PBXNativeTarget "LagosDevsUITests" */;
 			buildPhases = (
+				CA4A296EC49AABAC50DC741A /* [CP] Check Pods Manifest.lock */,
 				B0EE2E1B28E1E231005F7143 /* Sources */,
 				B0EE2E1C28E1E231005F7143 /* Frameworks */,
 				B0EE2E1D28E1E231005F7143 /* Resources */,
+				3F3E7DF07F99D1446B2F5CAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,12 +335,118 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2812C032A31DBE7EB86274DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LagosDevs/Pods-LagosDevs-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LagosDevs/Pods-LagosDevs-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LagosDevs/Pods-LagosDevs-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C96B64A9FE0F537DD6E1C75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LagosDevsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F3E7DF07F99D1446B2F5CAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LagosDevs-LagosDevsUITests/Pods-LagosDevs-LagosDevsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LagosDevs-LagosDevsUITests/Pods-LagosDevs-LagosDevsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LagosDevs-LagosDevsUITests/Pods-LagosDevs-LagosDevsUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA4A296EC49AABAC50DC741A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LagosDevs-LagosDevsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D8D52D0572E361AFE1D98643 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LagosDevs-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B0EE2DFB28E1E230005F7143 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B0EE2E0728E1E230005F7143 /* DevsListVC.swift in Sources */,
+				B04F5B2928E21D1500E5CCD8 /* DBManager.swift in Sources */,
+				B04F5B2528E21C9200E5CCD8 /* GithubUser.swift in Sources */,
+				B04F5B2728E21CF300E5CCD8 /* NetworkManager.swift in Sources */,
 				B0EE2E0328E1E230005F7143 /* AppDelegate.swift in Sources */,
 				B0EE2E0528E1E230005F7143 /* SceneDelegate.swift in Sources */,
 			);
@@ -420,6 +612,7 @@
 		};
 		B0EE2E2A28E1E231005F7143 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A03C16715C5C44A40134284A /* Pods-LagosDevs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -447,6 +640,7 @@
 		};
 		B0EE2E2B28E1E231005F7143 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3451AC4EBBC1324D43F028D2 /* Pods-LagosDevs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,6 +668,7 @@
 		};
 		B0EE2E2D28E1E231005F7143 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62B250C6DC9D452EDC6A6D1C /* Pods-LagosDevsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -494,6 +689,7 @@
 		};
 		B0EE2E2E28E1E231005F7143 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19DC9666B5C98252189E6638 /* Pods-LagosDevsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -514,6 +710,7 @@
 		};
 		B0EE2E3028E1E231005F7143 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0E35F9081B88DA07D0E5E43 /* Pods-LagosDevs-LagosDevsUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +729,7 @@
 		};
 		B0EE2E3128E1E231005F7143 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCA328B1F8CCEBF408B5D638 /* Pods-LagosDevs-LagosDevsUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
