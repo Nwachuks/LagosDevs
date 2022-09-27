@@ -12,6 +12,9 @@
 		B04F5B2528E21C9200E5CCD8 /* GithubUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2428E21C9200E5CCD8 /* GithubUser.swift */; };
 		B04F5B2728E21CF300E5CCD8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */; };
 		B04F5B2928E21D1500E5CCD8 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B04F5B2828E21D1500E5CCD8 /* DBManager.swift */; };
+		B060985C28E2209F008AC5D2 /* DevsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060985B28E2209F008AC5D2 /* DevsListCell.swift */; };
+		B060985E28E2240B008AC5D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B060985D28E2240B008AC5D2 /* Extensions.swift */; };
+		B0EAFAAC28E2A517008E65B5 /* DevDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EAFAAB28E2A517008E65B5 /* DevDetailsVC.swift */; };
 		B0EE2E0328E1E230005F7143 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0228E1E230005F7143 /* AppDelegate.swift */; };
 		B0EE2E0528E1E230005F7143 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0428E1E230005F7143 /* SceneDelegate.swift */; };
 		B0EE2E0728E1E230005F7143 /* DevsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EE2E0628E1E230005F7143 /* DevsListVC.swift */; };
@@ -52,6 +55,9 @@
 		B04F5B2428E21C9200E5CCD8 /* GithubUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubUser.swift; sourceTree = "<group>"; };
 		B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		B04F5B2828E21D1500E5CCD8 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		B060985B28E2209F008AC5D2 /* DevsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevsListCell.swift; sourceTree = "<group>"; };
+		B060985D28E2240B008AC5D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B0EAFAAB28E2A517008E65B5 /* DevDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevDetailsVC.swift; sourceTree = "<group>"; };
 		B0EE2DFF28E1E230005F7143 /* LagosDevs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LagosDevs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EE2E0228E1E230005F7143 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0EE2E0428E1E230005F7143 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				B0EE2E0628E1E230005F7143 /* DevsListVC.swift */,
+				B0EAFAAB28E2A517008E65B5 /* DevDetailsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -119,6 +126,7 @@
 		B04F5B2128E21B8F00E5CCD8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B060985B28E2209F008AC5D2 /* DevsListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -136,6 +144,7 @@
 			children = (
 				B04F5B2628E21CF300E5CCD8 /* NetworkManager.swift */,
 				B04F5B2828E21D1500E5CCD8 /* DBManager.swift */,
+				B060985D28E2240B008AC5D2 /* Extensions.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -444,7 +453,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0EE2E0728E1E230005F7143 /* DevsListVC.swift in Sources */,
+				B060985C28E2209F008AC5D2 /* DevsListCell.swift in Sources */,
 				B04F5B2928E21D1500E5CCD8 /* DBManager.swift in Sources */,
+				B0EAFAAC28E2A517008E65B5 /* DevDetailsVC.swift in Sources */,
+				B060985E28E2240B008AC5D2 /* Extensions.swift in Sources */,
 				B04F5B2528E21C9200E5CCD8 /* GithubUser.swift in Sources */,
 				B04F5B2728E21CF300E5CCD8 /* NetworkManager.swift in Sources */,
 				B0EE2E0328E1E230005F7143 /* AppDelegate.swift in Sources */,

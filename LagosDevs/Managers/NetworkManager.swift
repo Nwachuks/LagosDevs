@@ -21,7 +21,7 @@ class NetworkManager {
     func getListOfLagosDevs(completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: "\(Constants.BASE_URL)\(Constants.SEARCH_URL)?q=lagos") else { return }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
                 if let results = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -34,27 +34,23 @@ class NetworkManager {
                 print("Failed to load: \(error.localizedDescription)")
                 completion(.failure(error))
             }
-        }
-        task.resume()
+        }.resume()
     }
     
     func getDevDetails(urlString: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }
             do {
-                if let results = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    if let listing = results["items"] as? [[String: Any]] {
-                        DBManager.shared.saveDevListing(results: listing)
-                    }
-                    completion(.success(results))
+                if let result = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    DBManager.shared.updateSingleDev(result: result)
+                    completion(.success(result))
                 }
             } catch let error as NSError {
                 print("Failed to load: \(error.localizedDescription)")
                 completion(.failure(error))
             }
-        }
-        task.resume()
+        }.resume()
     }
 }

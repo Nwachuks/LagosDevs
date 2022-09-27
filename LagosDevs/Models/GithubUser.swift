@@ -15,9 +15,8 @@ class GithubUser: Object {
     @Persisted var url = ""
     @Persisted var htmlUrl = ""
     @Persisted var name: String?
-    @Persisted var publicRepos = 0
-    @Persisted var followers = 0
-    @Persisted var following = 0
+    @Persisted var bio = ""
+    @Persisted var isFavorited = false
     
     convenience init(id: Int, username: String, url: String, htmlUrl: String) {
         self.init()
