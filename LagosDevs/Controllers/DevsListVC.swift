@@ -14,7 +14,6 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private lazy var devsTable: UITableView = {
         let table = UITableView()
-//        table.separatorStyle = .none
         table.register(DevsListCell.self, forCellReuseIdentifier: DevsListCell.identifier)
         return table
     }()
@@ -31,6 +30,11 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.tintColor = .black
+        
+        let nextItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(clearFavorites))
+        self.navigationItem.rightBarButtonItem = nextItem
+        self.navigationItem.rightBarButtonItem?.tintColor = .systemRed
+        
         // Do any additional setup after loading the view.
         devsTable.delegate = self
         devsTable.dataSource = self
@@ -45,7 +49,6 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             case .initial:
                 self.devsTable.reloadData()
                 break
-//            case .update(_, let deletions, let insertions, let modifications):
             case .update(_, _, _, _):
                 let results = DBManager.shared.getDevListing()
                 self.devsList = Array(results)
@@ -57,7 +60,9 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             }
         }
         
-        getListOfDevs()
+        if devsList.isEmpty {
+            getListOfDevs()
+        }
     }
     
     override func viewWillLayoutSubviews() {
@@ -66,20 +71,24 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func getListOfDevs() {
-        NetworkManager.shared.getListOfLagosDevs { [weak self] results in
-            guard let self = self else { return }
+        NetworkManager.shared.getListOfLagosDevs { results in
             switch results {
             case .success:
-//                print(DBManager.shared.getDevListing())
-//                DispatchQueue.main.async {
-//                    self.devsTable.reloadData()
-//                }
                 break
             case .failure(let error):
                 print(error.localizedDescription)
                 break
             }
         }
+    }
+    
+    @objc func clearFavorites() {
+        let alert = UIAlertController(title: "Clear Favorites?", message: "This will clear all github profiles that you have added to your favorites. Proceed?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .destructive) { action in
+            DBManager.shared.clearAllFavorites()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true)
     }
     
     // MARK: TableViewDelegate methods

@@ -63,8 +63,8 @@ class DevsListCell: UITableViewCell {
         NSLayoutConstraint.activate(usernameLabelConstraints)
     }
     
-    func configure(using user: GithubUser) {
-        devImage.image = UIImage(named: "default-img")
-        usernameLabel.text = "@\(user.username)"
+    func configure(using dev: GithubUser) {
+        devImage.download(from: dev.avatarUrl)
+        usernameLabel.text = "@\(dev.username)"
     }
 }

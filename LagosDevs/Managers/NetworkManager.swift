@@ -18,8 +18,8 @@ class NetworkManager {
     
     private init() { }
     
-    func getListOfLagosDevs(completion: @escaping (Result<[String: Any], Error>) -> Void) {
-        guard let url = URL(string: "\(Constants.BASE_URL)\(Constants.SEARCH_URL)?q=lagos") else { return }
+    func getListOfLagosDevs(page: Int = 1, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+        guard let url = URL(string: "\(Constants.BASE_URL)\(Constants.SEARCH_URL)?q=lagos&page=\(page)") else { return }
         
         URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, error in
             guard let data = data, error == nil else { return }

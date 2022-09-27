@@ -18,9 +18,12 @@ class DBManager {
                   let url = result["url"] as? String,
                   let htmlUrl = result["html_url"] as? String else { return }
             
-            let githubUser = GithubUser(id: id, username: username, url: url, htmlUrl: htmlUrl)
+            // Avatar may be optional, and made empty in this case
+            let avatar = result["avatar_url"] as? String ?? ""
+            
             let realm = try! Realm()
             try! realm.write {
+                let githubUser = GithubUser(id: id, username: username, url: url, htmlUrl: htmlUrl, avatar: avatar)
                 realm.add(githubUser, update: .modified)
             }
         }
@@ -32,6 +35,10 @@ class DBManager {
               let devName = result["name"] as? String
         else { return }
         
+        let repos = result["public_repos"] as? Int ?? 0
+        let followers = result["followers"] as? Int ?? 0
+        let following = result["following"] as? Int ?? 0
+        
         // Bio is optional, and made empty in this case
         let bio = result["bio"] as? String ?? ""
         
@@ -42,6 +49,9 @@ class DBManager {
             dev.avatarUrl = avatarUrl
             dev.name = devName
             dev.bio = bio
+            dev.publicRepos = repos
+            dev.followers = followers
+            dev.following = following
         }
     }
     
@@ -51,11 +61,19 @@ class DBManager {
         return devsList
     }
     
-    func addDevToFavorites(id: Int) {
+    func toggleDevFavorited(id: Int, isFavorited: Bool) {
         let realm = try! Realm()
         guard let dev = realm.objects(GithubUser.self).filter("id=%@", id).first else { return }
         try! realm.write {
-            dev.isFavorited.toggle()
+            dev.isFavorited = isFavorited
+        }
+    }
+    
+    func clearAllFavorites() {
+        let realm = try! Realm()
+        let devsList = realm.objects(GithubUser.self)
+        try! realm.write {
+            devsList.setValue(false, forKey: "isFavorited")
         }
     }
 }

@@ -85,6 +85,87 @@ class DevDetailsVC: UIViewController {
         return label
     }()
     
+    private lazy var repoView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var repoTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .left
+        label.text = "Public Repos"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var repoLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var followersView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var followersTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .left
+        label.text = "Followers"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var followersLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var followingView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fill
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var followingTitleLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .left
+        label.text = "Following"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var followingLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .right
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     private lazy var viewGitHubBtn: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
@@ -101,7 +182,6 @@ class DevDetailsVC: UIViewController {
     private lazy var favBtn: UIButton = {
         let button = UIButton()
         var config = UIButton.Configuration.filled()
-//        config.title = "Add to Favorites"
         config.baseBackgroundColor = .systemRed
         config.baseForegroundColor = .white
         config.cornerStyle = .capsule
@@ -114,12 +194,11 @@ class DevDetailsVC: UIViewController {
         button.configurationUpdateHandler = { [unowned self] button in
             var config = button.configuration
             config?.title = self.isFavorited ? "Remove from Favorites" : "Add to Favorites"
-//            button.widthAnchor.constraint(equalToConstant: 200)
             let symbolName = self.isFavorited ? "heart.fill" : "heart"
             config?.image = UIImage(systemName: symbolName)
             button.configuration = config
         }
-        button.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+        button.addTarget(self, action: #selector(toggleFavorite), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -145,9 +224,23 @@ class DevDetailsVC: UIViewController {
         stackView.addArrangedSubview(devImage)
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(usernameLabel)
+        
         stackView.addArrangedSubview(bioView)
         bioView.addSubview(bioTitleLabel)
         bioView.addSubview(bioLabel)
+        
+        stackView.addArrangedSubview(repoView)
+        repoView.addArrangedSubview(repoTitleLabel)
+        repoView.addArrangedSubview(repoLabel)
+        
+        followersView.addArrangedSubview(followersTitleLabel)
+        followersView.addArrangedSubview(followersLabel)
+        stackView.addArrangedSubview(followersView)
+        
+        followingView.addArrangedSubview(followingTitleLabel)
+        followingView.addArrangedSubview(followingLabel)
+        stackView.addArrangedSubview(followingView)
+        
         stackView.addArrangedSubview(viewGitHubBtn)
         stackView.addArrangedSubview(favBtn)
         // Do any additional setup after loading the view.
@@ -169,8 +262,7 @@ class DevDetailsVC: UIViewController {
                 }
             }
             
-            NetworkManager.shared.getDevDetails(urlString: dev.url) { [weak self] result in
-                guard let self = self else { return }
+            NetworkManager.shared.getDevDetails(urlString: dev.url) { result in
                 switch result {
                 case .success:
                     break
@@ -189,7 +281,7 @@ class DevDetailsVC: UIViewController {
     
     private func setupView() {
         if let dev = dev {
-            devImage.image = UIImage(named: "default-img")
+            devImage.download(from: dev.avatarUrl)
             if let name = dev.name {
                 nameLabel.isHidden = false
                 nameLabel.text = name
@@ -204,6 +296,10 @@ class DevDetailsVC: UIViewController {
                 bioView.isHidden = false
                 bioLabel.text = dev.bio
             }
+            repoLabel.text = String(dev.publicRepos)
+            followersLabel.text = String(dev.followers)
+            followingLabel.text = String(dev.following)
+            
             isFavorited = dev.isFavorited
         }
     }
@@ -264,14 +360,28 @@ class DevDetailsVC: UIViewController {
             bioLabel.bottomAnchor.constraint(equalTo: bioView.bottomAnchor)
         ]
         
+        let repoConstraints = [
+            repoView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            repoView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+        ]
+        
+        let followersConstraints = [
+            followersView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            followersView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+        ]
+        
+        let followingConstraints = [
+            followingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            followingView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+        ]
+        
         let githubBtnConstraints = [
             viewGitHubBtn.heightAnchor.constraint(equalToConstant: 50),
             viewGitHubBtn.widthAnchor.constraint(equalToConstant: 170)
         ]
         
         let favoriteBtnConstraints = [
-            favBtn.heightAnchor.constraint(equalToConstant: 50),
-//            favBtn.widthAnchor.constraint(equalToConstant: 200)
+            favBtn.heightAnchor.constraint(equalToConstant: 50)
         ]
         
         NSLayoutConstraint.activate(scrollViewConstraints)
@@ -283,6 +393,9 @@ class DevDetailsVC: UIViewController {
         NSLayoutConstraint.activate(bioViewConstraints)
         NSLayoutConstraint.activate(bioTitleConstraints)
         NSLayoutConstraint.activate(bioLabelConstraints)
+        NSLayoutConstraint.activate(repoConstraints)
+        NSLayoutConstraint.activate(followersConstraints)
+        NSLayoutConstraint.activate(followingConstraints)
         NSLayoutConstraint.activate(githubBtnConstraints)
         NSLayoutConstraint.activate(favoriteBtnConstraints)
     }
@@ -293,10 +406,9 @@ class DevDetailsVC: UIViewController {
         present(vc, animated: true)
     }
     
-    @objc func addToFavorites() {
+    @objc func toggleFavorite() {
         guard let dev = dev else { return }
         isFavorited.toggle()
-        DBManager.shared.addDevToFavorites(id: dev.id)
+        DBManager.shared.toggleDevFavorited(id: dev.id, isFavorited: isFavorited)
     }
-    
 }

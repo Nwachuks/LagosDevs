@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import UIKit
 
 extension Results {
     func toArray<T>(type: T.Type) -> [T] {
@@ -18,13 +19,18 @@ extension UIImageView {
     func download(from urlString: String) {
         if let url = URL(string: urlString) {
             let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                guard let data = data, error == nil else { return }
+                guard let data = data, error == nil else {
+                    self.image = UIImage(named: "default-img")
+                    return
+                }
                 let image = UIImage(data: data)
                 DispatchQueue.main.async {
                     self.image = image
                 }
             }
             task.resume()
+        } else {
+            self.image = UIImage(named: "default-img")
         }
     }
 }
