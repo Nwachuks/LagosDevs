@@ -10,6 +10,7 @@ import RealmSwift
 
 class GithubUser: Object {
     @Persisted(primaryKey: true) var id = 0
+    @Persisted var index = 1
     @Persisted var username = ""
     @Persisted var url = ""
     @Persisted var htmlUrl = ""
@@ -21,9 +22,10 @@ class GithubUser: Object {
     @Persisted var following = 0
     @Persisted var isFavorited = false
     
-    convenience init(id: Int, username: String, url: String, htmlUrl: String, avatar: String) {
+    convenience init(id: Int, index: Int, username: String, url: String, htmlUrl: String, avatar: String) {
         self.init()
         self.id = id
+        self.index = index
         self.username = username
         self.url = url
         self.htmlUrl = htmlUrl

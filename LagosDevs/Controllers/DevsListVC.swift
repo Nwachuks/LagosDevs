@@ -11,6 +11,7 @@ import RealmSwift
 class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var devsList = [GithubUser]()
+    var pageIndex = 1
     
     private lazy var devsTable: UITableView = {
         let table = UITableView()
@@ -61,8 +62,10 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         if devsList.isEmpty {
-            getListOfDevs()
+            // Fetch first page on initial launch
+            getListOfDevs(index: pageIndex)
         }
+        pageIndex = (devsList.count / Constants.PAGE_LIMIT) + 1
     }
     
     override func viewWillLayoutSubviews() {
@@ -70,8 +73,8 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         devsTable.frame = view.safeAreaLayoutGuide.layoutFrame
     }
     
-    func getListOfDevs() {
-        NetworkManager.shared.getListOfLagosDevs { results in
+    func getListOfDevs(index: Int) {
+        NetworkManager.shared.getListOfLagosDevs(page: index) { results in
             switch results {
             case .success:
                 break
@@ -112,5 +115,13 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let vc = DevDetailsVC()
         vc.dev = dev
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // Load more of the devs list when one row left
+        if indexPath.row == devsList.count - 1 {
+            getListOfDevs(index: pageIndex)
+            pageIndex += 1
+        }
     }
 }

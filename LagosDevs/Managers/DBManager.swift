@@ -11,7 +11,7 @@ import RealmSwift
 class DBManager {
     static let shared = DBManager()
     
-    func saveDevListing(results: [[String: Any]]) {
+    func saveDevListing(results: [[String: Any]], index: Int) {
         for result in results {
             guard let id = result["id"] as? Int,
                   let username = result["login"] as? String,
@@ -23,7 +23,7 @@ class DBManager {
             
             let realm = try! Realm()
             try! realm.write {
-                let githubUser = GithubUser(id: id, username: username, url: url, htmlUrl: htmlUrl, avatar: avatar)
+                let githubUser = GithubUser(id: id, index: index, username: username, url: url, htmlUrl: htmlUrl, avatar: avatar)
                 realm.add(githubUser, update: .modified)
             }
         }
@@ -57,7 +57,7 @@ class DBManager {
     
     func getDevListing() -> Results<GithubUser> {
         let realm = try! Realm()
-        let devsList = realm.objects(GithubUser.self).sorted(byKeyPath: "username", ascending: true)
+        let devsList = realm.objects(GithubUser.self).sorted(byKeyPath: "username", ascending: true).sorted(byKeyPath: "index", ascending: true)
         return devsList
     }
     

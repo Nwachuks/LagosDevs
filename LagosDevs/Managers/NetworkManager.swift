@@ -11,6 +11,7 @@ struct Constants {
     static let BASE_URL = "https://api.github.com"
     static let SEARCH_URL = "/search/users"
     static let LOCATION = "lagos"
+    static let PAGE_LIMIT = 30
 }
 
 class NetworkManager {
@@ -26,7 +27,7 @@ class NetworkManager {
             do {
                 if let results = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     if let listing = results["items"] as? [[String: Any]] {
-                        DBManager.shared.saveDevListing(results: listing)
+                        DBManager.shared.saveDevListing(results: listing, index: page)
                     }
                     completion(.success(results))
                 }

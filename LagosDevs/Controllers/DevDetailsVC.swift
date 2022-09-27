@@ -11,6 +11,13 @@ import SafariServices
 
 class DevDetailsVC: UIViewController {
     
+    var dev: GithubUser?
+    var isFavorited = false {
+        didSet {
+            favBtn.setNeedsUpdateConfiguration()
+        }
+    }
+    
     private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -202,13 +209,6 @@ class DevDetailsVC: UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    var dev: GithubUser?
-    var isFavorited = false {
-        didSet {
-            favBtn.setNeedsUpdateConfiguration()
-        }
-    }
     
     var notificationToken: NotificationToken? = nil
     deinit {
