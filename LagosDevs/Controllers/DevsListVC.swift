@@ -13,6 +13,12 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var devsList = [GithubUser]()
     var pageIndex = 1
     
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     private lazy var devsTable: UITableView = {
         let table = UITableView()
         table.register(DevsListCell.self, forCellReuseIdentifier: DevsListCell.identifier)

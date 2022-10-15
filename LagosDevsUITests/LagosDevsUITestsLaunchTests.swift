@@ -29,4 +29,5 @@ class LagosDevsUITestsLaunchTests: XCTestCase {
         attachment.lifetime = .keepAlways
         add(attachment)
     }
+    
 }
