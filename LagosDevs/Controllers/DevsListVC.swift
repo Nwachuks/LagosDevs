@@ -86,7 +86,7 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func clearFavorites() {
-        let alert = UIAlertController(title: "Clear Favorites?", message: "This will clear all github profiles that you have added to your favorites. Proceed?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Clear Favorites?", message: "This will clear all Github profiles that you have added to your favorites. Proceed?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .destructive) { action in
             DBManager.shared.clearAllFavorites()
         })
