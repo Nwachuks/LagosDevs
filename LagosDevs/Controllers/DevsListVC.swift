@@ -13,12 +13,6 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private var devsList = [GithubUser]()
     var pageIndex = 1
     
-    private lazy var activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView()
-        indicator.hidesWhenStopped = true
-        return indicator
-    }()
-    
     private lazy var devsTable: UITableView = {
         let table = UITableView()
         table.register(DevsListCell.self, forCellReuseIdentifier: DevsListCell.identifier)
@@ -79,7 +73,7 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         devsTable.frame = view.safeAreaLayoutGuide.layoutFrame
     }
     
-    func getListOfDevs(index: Int) {
+    private func getListOfDevs(index: Int) {
         NetworkManager.shared.getListOfLagosDevs(page: index) { results in
             switch results {
             case .success:
@@ -130,4 +124,5 @@ class DevsListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             pageIndex += 1
         }
     }
+    
 }
